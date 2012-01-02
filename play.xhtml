@@ -1,0 +1,75 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Dynamic Content Injection</title>
+        <link href="style.css" type="text/css" rel="stylesheet"></link>
+        <script type="text/javascript" src="main.js"></script>
+        <script type="text/javascript" src="canvas.js"></script>
+        <script type="text/javascript" src="pong.js"></script>
+    </head>
+
+    <body onload="processor.doLoad()">
+        <video id="video" src="william.ogv" oncanplay="processor.videoIsReady()" autobuffer="true"/>
+
+        <p id="wait">Wait...</p>
+        <h2 id="nofirefoxbeta">It's not working in this version, <a style="color: red;" href="http://www.mozilla.com/en-US/firefox/all-beta.html">get Firefox 3.1 Beta 3</a></h2>
+
+        <p>
+        <h1>Dynamic Content Injection</h1>
+        <em>Only Open Web technologies inside!</em>
+        </p>
+        <div id="player">
+            <h2>Click to play:</h2>
+            <canvas id="mirrorVideo"/>
+            <svg id="playButton" xmlns="http://www.w3.org/2000/svg" width="100" height="100">
+            <path d="M 40 70 L 70 50 L 40 30"/>
+            <circle cx="50" cy="50" r="40" onclick="processor.playVideo()"/>
+            </svg>
+            <svg id="stopButton" xmlns="http://www.w3.org/2000/svg" width="100" height="100">
+            <path d="M 40 70 L 40 30"/>
+            <path d="M 60 70 L 60 30"/>
+            <circle cx="50" cy="50" r="40" onclick="processor.stopVideo()"/>
+            </svg>
+        </div>
+
+        <div id="patterns">
+            <h2>Choose a pattern:</h2>
+            <br/>
+            <span>
+                Video:
+                <br/>
+                <video id="tiny_video" controls="true" width="150" height="150" src="billyBrowsers.ogg" onclick="processor.updatePattern(this, true)" autobuffer="true"/>
+            </span>
+            <span>
+                Image:
+                <br/>
+                <img id="token" width="150" height="150" src="token.jpg" onclick="processor.updatePattern(this, true)"/>
+            </span>
+            <span>
+                Image:
+                <br/>
+                <img id="ff" width="150" height="150" src="firefox.png" onclick="processor.updatePattern(this, false)"/>
+            </span>
+            <br/>
+            <span>
+                Canvas:
+                <br/>
+                <canvas id="pong" width="150" height="150" onclick="processor.updatePattern(this, true)"/>
+            </span>
+            <span>
+                Your text:
+                <br/>
+                <canvas id="yourtext" width="150" height="150" onclick="processor.updatePattern(this, false); document.getElementById('message').focus()"/>
+                <input id="message"/>
+            </span>
+            <span>
+                Your drawing:
+                <br/>
+                <canvas id="yourdrawing" width="150" height="150" onclick="processor.updatePattern(this, false)"/>
+                <input value="clear" type="button" onclick="processor.clearPainter()"/>
+                3 </span>
+        </div>
+        <br/>
+        <a href="https://wiki.mozilla.org/Firefox3.5"><img src="fflogo.png"/></a>
+        <a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/us/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0 United States License</a>.
+    </body>
+</html>

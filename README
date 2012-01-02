@@ -1,0 +1,4 @@
+Code of the demo: http://ajaxian.com/archives/dynamic-content-injection-with-html5-canvas-and-video
+
+It must be in a webserver to run correctly, otherwise the error: "Unable to get image data from canvas because the canvas has been tainted by cross-origin data." exists.
+
